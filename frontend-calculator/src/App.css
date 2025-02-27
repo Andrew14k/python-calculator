@@ -1,47 +1,102 @@
-.calculator {
-  width: 280px;
-  margin: 100px auto;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+/* General styling for the overall page */
+body {
+  background-color: #000; /* Black background for the page */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
 
+/* Styling for the calculator container */
+.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000; /* Black background for the page */
+  flex-direction: column; /* Align display and buttons vertically */
+  padding: 20px; /* Add some space around the calculator */
+}
+
+/* Styling for the display area */
 .display {
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 320px; /* Ensure display doesn't stretch too wide */
+  background-color: #333; /* Dark background for the display */
+  padding: 10px;
+  text-align: right;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px; /* Space between display and buttons */
 }
 
 .display input {
-  width: 100%;
-  padding: 10px;
-  font-size: 24px;
-  text-align: right;
-  border: 1px solid #ccc;
+  width: 100%; /* Make sure input spans the full width */
+  height: 50px; /* Adjust the height for proper visibility */
+  background-color: #333;
+  color: white;
+  font-size: 30px; /* Slightly increase font size */
+  border: none;
   border-radius: 5px;
-  margin-bottom: 10px;
+  text-align: right;
+  padding-right: 20px; /* Ensure there's space for the text */
+  box-sizing: border-box; /* Include padding in width/height calculation */
 }
 
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
+/* Styling for all buttons with gradient background */
 button {
   padding: 20px;
   font-size: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background: linear-gradient(135deg, #ff8c00, #f6877f); /* Gradient background for buttons */
+  border: 1px solid #ddd;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  color: #fff;
 }
 
 button:hover {
-  background-color: #e0e0e0;
+  background: linear-gradient(135deg, #ff7b00, #ff9e7f); /* Slight change in gradient on hover */
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-  background-color: #d0d0d0;
+  background: linear-gradient(135deg, #ff4500, #f6877f); /* Active state gradient */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Layout for the buttons in grid format */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-gap: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Specific buttons like AC and equals (spanning 2 columns) */
+button#clear-all {
+  background: linear-gradient(135deg, #f44336, #ff7f7f); /* Gradient for clear-all button */
+  color: white;
+  grid-column: span 2; /* Clear button spans two columns */
+}
+
+button#equal {
+  background: linear-gradient(135deg, #4caf50, #66bb6a); /* Gradient for equal button */
+  color: white;
+  grid-column: span 2; /* Equal button spans two columns */
+}
+
+/* Additional specific button styling */
+button#square-root {
+  background-color: #9c27b0;
+}
+
+button#percentage {
+  background-color: #3f51b5;
+}
+
+button#exponent {
+  background-color: #ffeb3b;
 }
