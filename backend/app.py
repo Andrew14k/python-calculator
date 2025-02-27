@@ -1,41 +1,51 @@
-def add(x, y):
-    return x + y
+def add(numbers):
+    return sum(numbers)
 
-def subtract(x, y):
-    return x - y
+def subtract(numbers):
+    result = numbers[0]
+    for num in numbers[1:]:
+        result -= num
+    return result
 
-def multiply(x, y):
-    return x * y
+def multiply(numbers):
+    result = 1
+    for num in numbers:
+        result *= num
+    return result
 
-def divide(x, y):
-    if y == 0:
-        return "Error! Division by zero."
-    else:
-        return x / y
+def divide(numbers):
+    result = numbers[0]
+    for num in numbers[1:]:
+        if num == 0:
+            return "Error! Division by zero."
+        result /= num
+    return result
 
 def calculator():
-    print("Select operation:")
+
+    print("Select operation, or press = to finish you calculation:")
     print("+. Add")
     print("-. Subtract")
     print("*. Multiply")
     print("/. Divide")
 
     # Take user input
-    choice = input("Enter choice (+/-/*//): ")
+    choice = input("Enter choice (+, -, *, /): ")
 
     # Check if the user input is valid
     if choice in ('+', '-', '*', '/'):
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
+        
+        numbers = list(map(float, input("Enter numbers separated by space: ").split()))
 
+        # Perform the selected operation
         if choice == '+':
-            print(f"{num1} + {num2} = {add(num1, num2)}")
+            print(f"Result: {add(numbers)}")
         elif choice == '-':
-            print(f"{num1} - {num2} = {subtract(num1, num2)}")
+            print(f"Result: {subtract(numbers)}")
         elif choice == '*':
-            print(f"{num1} * {num2} = {multiply(num1, num2)}")
+            print(f"Result: {multiply(numbers)}")
         elif choice == '/':
-            print(f"{num1} / {num2} = {divide(num1, num2)}")
+            print(f"Result: {divide(numbers)}")
     else:
         print("Invalid input, please choose a valid operation.")
 
